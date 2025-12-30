@@ -248,7 +248,7 @@ export default function LandingPage() {
 
       {/* How It Works Section */}
       <section id="como-funciona" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,14 +261,37 @@ export default function LandingPage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Simples, Rápido e Direto ao Ponto
             </h2>
+            <p className="text-slate-600 mt-4 text-lg">
+              Veja o sistema real funcionando em 4 passos simples
+            </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 gap-8">
             {[
-              { step: '1', title: 'Acesse o sistema', desc: 'Entre na plataforma com seu login', icon: '🖥️' },
-              { step: '2', title: 'Selecione seu mercado', desc: 'Informe seu tipo de negócio', icon: '🏢' },
-              { step: '3', title: 'Escolha o mês', desc: 'Defina o período que deseja planejar', icon: '📅' },
-              { step: '4', title: 'Plano completo', desc: 'GPS 365 gera tudo em segundos', icon: '🚀' }
+              { 
+                step: '1', 
+                title: 'Informe seu negócio', 
+                desc: 'Digite o tipo do seu negócio e deixe a IA entender seu mercado',
+                image: 'https://i.postimg.cc/bwpzgKVc/etapa-1.png'
+              },
+              { 
+                step: '2', 
+                title: 'Defina seu objetivo', 
+                desc: 'Escolha o que você quer alcançar: mais vendas, novos clientes, fidelização...',
+                image: 'https://i.postimg.cc/2SrzGP9f/etapa-2.png'
+              },
+              { 
+                step: '3', 
+                title: 'Descreva seu público', 
+                desc: 'Informe quem é seu cliente ideal para campanhas personalizadas',
+                image: 'https://i.postimg.cc/K8xZfdpX/etapa-3.png'
+              },
+              { 
+                step: '4', 
+                title: 'Escolha o mês', 
+                desc: 'Selecione o mês e receba 4 semanas de campanhas prontas!',
+                image: 'https://i.postimg.cc/X7wjwV8g/etapa-4-mes.png'
+              }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -276,17 +299,45 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center"
+                className="relative bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                {/* Step Badge */}
+                <div className="absolute top-4 left-4 z-10 w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                   {item.step}
                 </div>
-                <span className="text-4xl block mb-4 mt-2">{item.icon}</span>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm">{item.desc}</p>
+                
+                {/* Image */}
+                <div className="relative aspect-video bg-slate-900 overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={`Etapa ${item.step}: ${item.title}`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                </div>
+                
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="font-bold text-slate-900 text-xl mb-2">{item.title}</h3>
+                  <p className="text-slate-600">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Arrow indicating flow */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-emerald-100 text-emerald-700 rounded-full font-semibold">
+              <span>E pronto!</span>
+              <span className="text-2xl">🎯</span>
+              <span>Suas campanhas são geradas automaticamente</span>
+            </div>
+          </motion.div>
         </div>
       </section>
 
