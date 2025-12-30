@@ -312,8 +312,12 @@ export default function LandingPage() {
                     src={item.image} 
                     alt={`Etapa ${item.step}: ${item.title}`}
                     className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none" />
                 </div>
                 
                 {/* Content */}
@@ -439,12 +443,10 @@ export default function LandingPage() {
                   BÔNUS 1
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Bunker de Scripts</h3>
-              <div className="mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
-                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
-                </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">🎁 Bunker de Scripts</h3>
+              <div className="mb-4 inline-flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                <span className="text-slate-500 text-sm line-through">De R$ 97</span>
+                <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
               </div>
               <p className="text-slate-600">
                 100+ mensagens de WhatsApp que convertem curiosos em clientes.
@@ -464,12 +466,10 @@ export default function LandingPage() {
                   BÔNUS 2
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Gerador de Roteiros</h3>
-              <div className="mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
-                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
-                </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">🎁 Gerador de Roteiros</h3>
+              <div className="mb-4 inline-flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                <span className="text-slate-500 text-sm line-through">De R$ 97</span>
+                <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
               </div>
               <p className="text-slate-600">
                 Nunca mais fique sem saber o que postar. Roteiros de vídeo prontos.
@@ -489,12 +489,10 @@ export default function LandingPage() {
                   BÔNUS 3
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Guia de Anúncios com Pouco Investimento</h3>
-              <div className="mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
-                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
-                </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">🎁 Guia de Anúncios com Pouco Investimento</h3>
+              <div className="mb-4 inline-flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-lg border border-emerald-200">
+                <span className="text-slate-500 text-sm line-through">De R$ 97</span>
+                <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
               </div>
               <p className="text-slate-600">
                 Como rodar campanhas com R$ 10/dia, usando o plano do GPS.
@@ -522,7 +520,7 @@ export default function LandingPage() {
           </motion.div>
 
           {/* Mobile Cards View */}
-          <div className="sm:hidden space-y-4 mb-6">
+          <div className="sm:hidden space-y-3 mb-8">
             {[
               { role: 'Social Media', func: 'Planejar o que postar todo dia', cost: 'R$ 1.500,00' },
               { role: 'Copywriter', func: 'Escrever legendas e scripts de venda', cost: 'R$ 2.000,00' },
@@ -535,13 +533,13 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"
+                className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm"
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-semibold text-slate-900 text-base">{item.role}</h3>
-                  <span className="text-slate-900 font-bold text-lg ml-4">{item.cost}</span>
+                <div className="flex justify-between items-start mb-2 gap-3">
+                  <h3 className="font-semibold text-slate-900 text-base flex-1">{item.role}</h3>
+                  <span className="text-slate-900 font-bold text-lg whitespace-nowrap">{item.cost}</span>
                 </div>
-                <p className="text-slate-600 text-sm">{item.func}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.func}</p>
               </motion.div>
             ))}
             {/* Total Mobile */}
@@ -550,9 +548,9 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-red-50 rounded-xl p-4 border-2 border-red-200"
+              className="bg-red-50 rounded-xl p-5 border-2 border-red-200 mt-4"
             >
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <span className="font-bold text-red-700 text-base">TOTAL DO INVESTIMENTO</span>
                 <span className="font-bold text-red-700 text-xl">R$ 9.000,00 /mês</span>
               </div>
@@ -569,9 +567,9 @@ export default function LandingPage() {
             <table className="w-full">
               <thead className="bg-slate-100">
                 <tr>
-                  <th className="text-left py-4 px-6 font-semibold text-slate-700">Profissional / Serviço</th>
-                  <th className="text-left py-4 px-6 font-semibold text-slate-700">Função</th>
-                  <th className="text-right py-4 px-6 font-semibold text-slate-700">Custo Médio</th>
+                  <th className="text-left py-5 px-6 font-semibold text-slate-700">Profissional / Serviço</th>
+                  <th className="text-left py-5 px-6 font-semibold text-slate-700">Função</th>
+                  <th className="text-right py-5 px-6 font-semibold text-slate-700">Custo Médio</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
@@ -581,19 +579,19 @@ export default function LandingPage() {
                   { role: 'Estrategista', func: 'Criar campanhas de datas sazonais', cost: 'R$ 3.000,00' },
                   { role: 'Agência de Marketing', func: 'Gerenciar tudo e não deixar falhar', cost: 'R$ 2.500,00' }
                 ].map((item, i) => (
-                  <tr key={i} className="hover:bg-slate-50">
-                    <td className="py-4 px-6 font-medium text-slate-900">{item.role}</td>
-                    <td className="py-4 px-6 text-slate-600">{item.func}</td>
-                    <td className="py-4 px-6 text-right text-slate-900">{item.cost}</td>
+                  <tr key={i} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-5 px-6 font-medium text-slate-900">{item.role}</td>
+                    <td className="py-5 px-6 text-slate-600">{item.func}</td>
+                    <td className="py-5 px-6 text-right text-slate-900 font-semibold">{item.cost}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot className="bg-red-50">
                 <tr>
-                  <td className="py-4 px-6 font-bold text-red-700" colSpan={2}>
+                  <td className="py-5 px-6 font-bold text-red-700" colSpan={2}>
                     TOTAL DO INVESTIMENTO
                   </td>
-                  <td className="py-4 px-6 text-right font-bold text-red-700 text-lg">
+                  <td className="py-5 px-6 text-right font-bold text-red-700 text-xl">
                     R$ 9.000,00 /mês
                   </td>
                 </tr>
