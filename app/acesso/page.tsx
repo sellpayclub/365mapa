@@ -65,7 +65,7 @@ export default function AcessoPage() {
             </svg>
           </motion.div>
           <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-            GPS Marketing e Vendas
+            GPS Marketing e Vendas 2026
           </h1>
           <p className="text-slate-400 text-sm md:text-base">
             Área exclusiva para assinantes
@@ -208,10 +208,11 @@ export default function AcessoPage() {
 
         {/* Footer */}
         <p className="text-center text-slate-600 text-xs mt-6">
-          © 2025 GPS Marketing e Vendas. Todos os direitos reservados.
+          © 2026 GPS Marketing e Vendas 2026. Todos os direitos reservados.
         </p>
       </motion.div>
     </div>
   );
 }
+
 

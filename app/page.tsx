@@ -164,7 +164,8 @@ export default function Home() {
               e{' '}
               <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
                 Vendas
-              </span>
+              </span>{' '}
+              <span className="text-emerald-400">2026</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto px-4">
               Gere campanhas personalizadas para seu negócio em segundos.
