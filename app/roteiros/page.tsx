@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import ScriptGenerator from '@/components/ScriptGenerator';
+import { useAuth } from '@/lib/useAuth';
 
 interface ScriptContext {
   theme: string;
@@ -36,6 +37,7 @@ interface ScriptData {
 
 export default function RoteirosPage() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const [context, setContext] = useState<ScriptContext | null>(null);
   const [customTheme, setCustomTheme] = useState('');
   const [customBusiness, setCustomBusiness] = useState('');
@@ -54,6 +56,19 @@ export default function RoteirosPage() {
       setUseCustom(true);
     }
   }, []);
+
+  // Show loading while checking auth
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const handleGenerate = async (format: 'appearing' | 'voiceover' | 'textonly'): Promise<ScriptData | null> => {
     const theme = useCustom ? customTheme : (context?.theme || customTheme);

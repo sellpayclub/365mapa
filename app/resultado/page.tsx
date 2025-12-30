@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import WeekCard from '@/components/WeekCard';
 import { monthsList } from '@/lib/calendar-2026';
+import { useAuth } from '@/lib/useAuth';
 
 interface WeekData {
   week: number;
@@ -63,6 +64,7 @@ interface StoredData {
 
 export default function ResultadoPage() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const [data, setData] = useState<StoredData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -73,6 +75,19 @@ export default function ResultadoPage() {
     }
     setLoading(false);
   }, []);
+
+  // Show loading while checking auth
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const handleGenerateScript = (theme: string) => {
     if (!data) return;

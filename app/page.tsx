@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Quiz from '@/components/Quiz';
 import MonthSelector from '@/components/MonthSelector';
+import { useAuth } from '@/lib/useAuth';
 
 type Step = 'quiz' | 'month';
 
@@ -16,10 +17,24 @@ interface ProfileData {
 
 export default function Home() {
   const router = useRouter();
+  const { isAuthenticated, logout } = useAuth();
   const [currentStep, setCurrentStep] = useState<Step>('quiz');
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'campaigns' | 'scripts'>('campaigns');
+
+  // Show loading while checking auth
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+        <div className="animate-spin w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const handleQuizComplete = (data: ProfileData) => {
     setProfileData(data);
@@ -109,6 +124,17 @@ export default function Home() {
                 <span className="hidden sm:inline">🎬 </span>Roteiros
               </button>
             </div>
+
+            {/* Logout button */}
+            <button
+              onClick={logout}
+              className="ml-2 sm:ml-4 px-2.5 sm:px-3 py-1.5 sm:py-2 text-slate-400 hover:text-red-400 transition-colors text-xs sm:text-sm"
+              title="Sair"
+            >
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </button>
           </div>
         </div>
       </nav>
