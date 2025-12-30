@@ -521,17 +521,56 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
+          {/* Mobile Cards View */}
+          <div className="sm:hidden space-y-4 mb-6">
+            {[
+              { role: 'Social Media', func: 'Planejar o que postar todo dia', cost: 'R$ 1.500,00' },
+              { role: 'Copywriter', func: 'Escrever legendas e scripts de venda', cost: 'R$ 2.000,00' },
+              { role: 'Estrategista', func: 'Criar campanhas de datas sazonais', cost: 'R$ 3.000,00' },
+              { role: 'Agência de Marketing', func: 'Gerenciar tudo e não deixar falhar', cost: 'R$ 2.500,00' }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm"
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-slate-900 text-base">{item.role}</h3>
+                  <span className="text-slate-900 font-bold text-lg ml-4">{item.cost}</span>
+                </div>
+                <p className="text-slate-600 text-sm">{item.func}</p>
+              </motion.div>
+            ))}
+            {/* Total Mobile */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-red-50 rounded-xl p-4 border-2 border-red-200"
+            >
+              <div className="flex justify-between items-center">
+                <span className="font-bold text-red-700 text-base">TOTAL DO INVESTIMENTO</span>
+                <span className="font-bold text-red-700 text-xl">R$ 9.000,00 /mês</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Desktop Table View */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm mb-8 bg-white"
+            className="hidden sm:block overflow-hidden rounded-2xl border border-slate-200 shadow-sm mb-8 bg-white"
           >
             <table className="w-full">
               <thead className="bg-slate-100">
                 <tr>
                   <th className="text-left py-4 px-6 font-semibold text-slate-700">Profissional / Serviço</th>
-                  <th className="text-left py-4 px-6 font-semibold text-slate-700 hidden sm:table-cell">Função</th>
+                  <th className="text-left py-4 px-6 font-semibold text-slate-700">Função</th>
                   <th className="text-right py-4 px-6 font-semibold text-slate-700">Custo Médio</th>
                 </tr>
               </thead>
@@ -544,7 +583,7 @@ export default function LandingPage() {
                 ].map((item, i) => (
                   <tr key={i} className="hover:bg-slate-50">
                     <td className="py-4 px-6 font-medium text-slate-900">{item.role}</td>
-                    <td className="py-4 px-6 text-slate-600 hidden sm:table-cell">{item.func}</td>
+                    <td className="py-4 px-6 text-slate-600">{item.func}</td>
                     <td className="py-4 px-6 text-right text-slate-900">{item.cost}</td>
                   </tr>
                 ))}
