@@ -440,6 +440,12 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Bunker de Scripts</h3>
+              <div className="mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
+                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
+                </div>
+              </div>
               <p className="text-slate-600">
                 100+ mensagens de WhatsApp que convertem curiosos em clientes.
               </p>
@@ -459,6 +465,12 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Gerador de Roteiros</h3>
+              <div className="mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
+                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
+                </div>
+              </div>
               <p className="text-slate-600">
                 Nunca mais fique sem saber o que postar. Roteiros de vídeo prontos.
               </p>
@@ -478,6 +490,12 @@ export default function LandingPage() {
                 </span>
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">🎁 Guia de Anúncios com Pouco Investimento</h3>
+              <div className="mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-400 text-sm line-through">De R$ 97</span>
+                  <span className="text-emerald-600 font-bold text-lg">por R$ 0,00</span>
+                </div>
+              </div>
               <p className="text-slate-600">
                 Como rodar campanhas com R$ 10/dia, usando o plano do GPS.
               </p>
