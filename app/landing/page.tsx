@@ -58,9 +58,7 @@ export default function LandingPage() {
               </span>
             </div>
             <a
-              href={CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#preco"
               className="px-5 py-2.5 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors text-sm"
             >
               Assinar Agora
@@ -145,9 +143,7 @@ export default function LandingPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6"
           >
             <a
-              href={CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#preco"
               className="w-full sm:w-auto px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30 text-lg"
             >
               Quero Começar Agora
@@ -601,13 +597,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* Pricing Plans Section */}
       <section id="preco" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-12"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium mb-6">
               <span>🧭</span>
@@ -615,33 +612,208 @@ export default function LandingPage() {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              O GPS 365 custa apenas
+              Escolha o Plano Ideal Para Você
             </h2>
-
-            <div className="mb-8">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-slate-400 line-through text-2xl">R$ 97</span>
-              </div>
-              <div className="flex items-baseline justify-center gap-1">
-                <span className="text-emerald-400 text-2xl font-medium">R$</span>
-                <span className="text-7xl sm:text-8xl font-bold text-white">37</span>
-                <span className="text-slate-400 text-xl">/mês</span>
-              </div>
-            </div>
 
             <p className="text-xl text-slate-300 mb-8">
               👉 E você tem uma <strong className="text-white">equipe de marketing inteira</strong> trabalhando pra você!
             </p>
+          </motion.div>
 
-            <a
-              href={CHECKOUT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full sm:w-auto px-12 py-5 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 text-xl mb-6"
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Plano 1: Uso Único */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-emerald-500/50 transition-all"
             >
-              QUERO COMEÇAR AGORA
-            </a>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-2">Uso Único</h3>
+                <p className="text-slate-400 text-sm mb-6">1 mês de acesso</p>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-emerald-400 text-2xl font-medium">R$</span>
+                    <span className="text-5xl font-bold text-white">10</span>
+                    <span className="text-slate-400 text-lg">,00</span>
+                  </div>
+                </div>
 
+                <a
+                  href="https://pay.lowify.com.br/go.php?offer=8u35zro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-6 py-3 bg-slate-700 text-white font-semibold rounded-xl hover:bg-slate-600 transition-all text-center mb-4"
+                >
+                  Escolher Plano
+                </a>
+
+                <ul className="text-left space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Acesso por 1 mês</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Todos os bônus inclusos</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Suporte completo</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Plano 2: 3 Meses */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-emerald-500/50 transition-all"
+            >
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-2">3 Meses de Uso</h3>
+                <p className="text-slate-400 text-sm mb-6">Economia de 33%</p>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-emerald-400 text-2xl font-medium">R$</span>
+                    <span className="text-5xl font-bold text-white">19</span>
+                    <span className="text-slate-400 text-lg">,90</span>
+                  </div>
+                  <p className="text-slate-500 text-sm mt-2">R$ 6,63/mês</p>
+                </div>
+
+                <a
+                  href="https://pay.lowify.com.br/go.php?offer=yc9lumg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-6 py-3 bg-slate-700 text-white font-semibold rounded-xl hover:bg-slate-600 transition-all text-center mb-4"
+                >
+                  Escolher Plano
+                </a>
+
+                <ul className="text-left space-y-3 text-slate-300 text-sm">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Acesso por 3 meses</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Todos os bônus inclusos</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Suporte completo</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Melhor custo-benefício</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Plano 3: Anual - RECOMENDADO */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl p-8 border-2 border-emerald-500 shadow-2xl shadow-emerald-500/30 relative transform scale-105 md:scale-100"
+            >
+              {/* Badge Recomendado */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="inline-flex items-center gap-1 px-4 py-1.5 bg-yellow-400 text-yellow-900 rounded-full text-xs font-bold shadow-lg">
+                  <span>⭐</span>
+                  RECOMENDADO
+                </span>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-2">Acesso Anual</h3>
+                <p className="text-emerald-100 text-sm mb-6">12 meses de acesso</p>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-emerald-200 text-2xl font-medium">R$</span>
+                    <span className="text-5xl font-bold text-white">29</span>
+                    <span className="text-emerald-200 text-lg">,90</span>
+                  </div>
+                  <p className="text-emerald-100 text-sm mt-2">R$ 2,49/mês</p>
+                  <p className="text-yellow-200 text-xs mt-1 font-semibold">Economia de 75%</p>
+                </div>
+
+                <a
+                  href="https://pay.lowify.com.br/go.php?offer=qt803e5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-6 py-3 bg-white text-emerald-600 font-bold rounded-xl hover:bg-emerald-50 transition-all text-center mb-4 shadow-lg"
+                >
+                  QUERO COMEÇAR AGORA
+                </a>
+
+                <ul className="text-left space-y-3 text-emerald-50 text-sm">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Acesso por 12 meses</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Todos os bônus inclusos</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Suporte prioritário</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Melhor economia</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Atualizações garantidas</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-center mt-8"
+          >
             <p className="text-slate-400 text-sm">
               Acesso imediato • Cancele quando quiser • Satisfação garantida
             </p>
